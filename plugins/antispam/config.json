@@ -1,0 +1,8 @@
+{
+    "enabled": true,
+    "block_list": [
+        "spam@example.com",
+        "malicious_user"
+    ],
+    "max_messages_per_minute": 5
+}

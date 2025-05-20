@@ -1,0 +1,14 @@
+/* static/css/dark.css */
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: #1f1f1f;
+}
+
+.button {
+    background-color: #1a73e8;
+    color: white;
+}

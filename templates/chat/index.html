@@ -1,0 +1,31 @@
+<!-- templates/chat/index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天界面</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>聊天界面</h1>
+        <nav>
+            <a href="{{ url_for('auth.logout') }}">注销</a>
+        </nav>
+    </header>
+    <main>
+        <div id="messages">
+            {% for chat in chats %}
+            <div class="message">{{ chat.message }}</div>
+            {% endfor %}
+        </div>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="输入消息..." required>
+            <button type="submit">发送</button>
+        </form>
+    </main>
+</body>
+</html>

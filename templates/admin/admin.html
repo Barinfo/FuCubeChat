@@ -1,0 +1,46 @@
+<!-- templates/admin/index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>管理后台</h1>
+        <nav>
+            <a href="{{ url_for('auth.logout') }}">注销</a>
+        </nav>
+    </header>
+    <main>
+        <h2>用户管理</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>用户ID</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a href="{{ url_for('admin.update_user', user_id=user.id) }}">编辑</a>
+                        <form action="{{ url_for('admin.delete_user_route', user_id=user.id) }}" method="POST" style="display:inline;">
+                            <button type="submit">删除</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

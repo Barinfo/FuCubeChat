@@ -1,0 +1,26 @@
+<!-- templates/emoji/manage.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的表情包</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>我的表情包</h1>
+        <nav>
+            <a href="{{ url_for('auth.logout') }}">注销</a>
+        </nav>
+    </header>
+    <main>
+        <h2>我的收藏</h2>
+        <div class="emoji-list">
+            {% for emoji in my_emojis %}
+            <img src="{{ emoji.path }}" alt="表情" width="100">
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

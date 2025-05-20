@@ -1,0 +1,14 @@
+/* static/css/light.css */
+body {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+}

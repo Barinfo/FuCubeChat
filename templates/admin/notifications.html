@@ -1,0 +1,31 @@
+<!-- templates/admin/notifications.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统通知管理</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>系统通知管理</h1>
+        <nav>
+            <a href="{{ url_for('auth.logout') }}">注销</a>
+        </nav>
+    </header>
+    <main>
+        <h2>发送通知</h2>
+        <form action="{{ url_for('admin.send_notice') }}" method="POST">
+            <textarea name="content" rows="4" required></textarea>
+            <button type="submit">发送通知</button>
+        </form>
+        <h2>历史通知</h2>
+        <ul>
+            {% for notification in notifications %}
+            <li>{{ notification.content }} - {{ notification.send_time }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
